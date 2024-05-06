@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+      <th>Name</th>
+      <th>Songs</th>
+       <th>Audio</th>
+    </tr>
+    <tr th:each="playlist : ${playlists}">
+      <td th:text="${playlist.name}"></td>
+          <td>
+             <ul>
+                  <li th:each="song:${playlist.songs}">
+                      <span th:text="${song.name}">
+               
+                     </span>
+                   
+            </li>
+          </ul>
+          </td>
+<td>
+    <ul>
+        <li th:each="song : ${playlist.songs}">
+            <audio controls th:attr="src=@{${song.slink}}"></audio>
+
+        </li>
+    </ul>
+</td>
+    </tr>
+  </table>
+</body>
+</html>
